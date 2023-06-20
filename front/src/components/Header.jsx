@@ -1,22 +1,26 @@
+import { StyledContainer } from "../pages/Home";
+
 export const Header = () => {
   return (
     <header>
-      <div className='flex flex-row justify-between items-center p-8'>
-        <div>
-          <img className='h-16' src='src/assets/logo.png' alt='Logo' />
+      <StyledContainer>
+        <div className='flex flex-row justify-between items-center py-2'>
+          <div>
+            <img className='h-16' src='src/assets/logo.png' alt='Logo' />
+          </div>
+          <ul className='flex flex-row font-semibold text-[#1C315E]  text-lg gap-10'>
+            <li>
+              <a href='#'>Precipitaciones</a>
+            </li>
+            <li>
+              <a href='#'>Depositos de agua pluvia</a>
+            </li>
+            <li>
+              <a href='#'>Media de temperatura mensual</a>
+            </li>
+          </ul>
         </div>
-        <ul className='flex flex-row font-semibold text-#1C315E  text-lg gap-10'>
-          <li>
-            <a href='#'>Precipitaciones</a>
-          </li>
-          <li>
-            <a href='#'>Depositos de agua pluvia</a>
-          </li>
-          <li>
-            <a href='#'>Media de temperatura mensual</a>
-          </li>
-        </ul>
-      </div>
+      </StyledContainer>
       <div className="flex justify-center items-center relative bg-[url('https://img1.goodfon.com/original/1600x900/0/df/barselona-ispaniya-dvorec-69.jpg')] bg-cover h-[550px] ">
         <div className='flex justify-center items-center absolute px-4 py-3 bg-gray-200/50 w-full h-[550px]'>
           <h1 className='text-[#1C315E] text-center font-bold text-[60px]'>
