@@ -14,8 +14,7 @@ export default function Video() {
         height='315'
         src='https://www.youtube.com/embed/vZyppA94AJg?controls=0&amp;start=11'
         title='YouTube video player'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-        allowfullscreen></iframe>
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'></iframe>
     </StyledVideoContainer>
   );
 }
