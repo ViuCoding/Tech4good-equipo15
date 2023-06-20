@@ -62,8 +62,14 @@ const Charts = () => {
   };
 
   return (
-    <div>
-      <select onChange={handleYearChange}>
+    <div className='py-2'>
+      <label htmlFor="year" className="mr-2 text-primary">Año:</label>
+      <select
+        id="year"
+        className="appearance-none bg-white border border-secondary rounded-md py-2 px-4 focus:outline-none focus:border-primary"
+        onChange={handleYearChange}
+        value={selectedYear}
+      >
         {Array.from({ length: 23 }, (_, index) => 2000 + index).map(year => (
           <option key={year} value={year}>
             {year}
