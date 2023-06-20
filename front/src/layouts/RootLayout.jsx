@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function RootLayout() {
   return (
@@ -7,7 +8,7 @@ export default function RootLayout() {
       <main className='content'>
         <Outlet />
       </main>
-      <footer>FOOTER</footer>
+      <Footer />
     </>
   );
 }
