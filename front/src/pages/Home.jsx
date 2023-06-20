@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import TextContent from "../components/TextContent";
-import Video from "../components/Video";
-
+import Charts from "../components/charts";
 export const StyledContainer = styled.div`
   width: 80%;
   max-width: 1200px;
@@ -12,7 +11,8 @@ export default function Home() {
   return (
     <StyledContainer>
       <TextContent />
-      <Video />
+  
+      <Charts />
     </StyledContainer>
   );
 }
