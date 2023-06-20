@@ -9,7 +9,10 @@ const StyledH1 = styled.h1`
 
 const StyledP = styled.p`
   color: #1c315e;
-  columns: 2;
+
+  @media (min-width: 768px) {
+    columns: 2;
+  }
 `;
 
 export default function TextContent() {
