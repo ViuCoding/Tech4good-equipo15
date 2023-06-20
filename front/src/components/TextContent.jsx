@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledH1 = styled.h1`
+  padding: 1rem 0;
   font-size: 32px;
   font-weight: 800;
   color: #227c70;
