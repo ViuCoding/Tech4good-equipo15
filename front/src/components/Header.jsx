@@ -23,7 +23,7 @@ export const Header = () => {
       </StyledContainer>
       <div className="flex justify-center items-center relative bg-[url('https://img1.goodfon.com/original/1600x900/0/df/barselona-ispaniya-dvorec-69.jpg')] bg-cover h-[550px] ">
         <div className='flex justify-center items-center absolute px-4 py-3 bg-gray-200/50 w-full h-[550px]'>
-          <h1 className='text-[#1C315E] text-center font-bold text-[60px]'>
+          <h1 className='sm:text-[20px] md:text-[30px] lg:text-[60px] text-[#1C315E] text-center font-bold'>
             La sequía es uno de los mayores problemas que afrontamos en Cataluña
             en los últimos años.
           </h1>
