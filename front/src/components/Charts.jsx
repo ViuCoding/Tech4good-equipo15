@@ -1,40 +1,30 @@
-import React from 'react';
-import useFetch from "../hooks/useFetch"
-// import data from "../pages/data"
+import React, { useState } from 'react';
+import useFetch from "../hooks/useFetch";
 import {
-  ComposedChart,
+  LineChart,
   Line,
-  Area,
-  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  Scatter,
-  ReferenceLine,
-  ZAxis,
   ResponsiveContainer,
 } from 'recharts';
-// style={{display: "flex", alingItems:"center", justifyContent:"center"}}
 
-  
 const monthNames = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
-    ];
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
 
-const Charts = () => {
+const MyCharts = ({ selectedYear }) => {
   const { data } = useFetch('https://tech4good-backend-production.up.railway.app/api/data');
-  const slicedData = data.slice(0, 12);
-  console.log(data);
+  const filteredData = data ? data.filter(item => item.Any === selectedYear) : [];
+  const slicedData = filteredData.slice(0, 12);
 
   return (
     <div style={{ height: '500px' }}>
       <ResponsiveContainer width="100%" height="100%">
-        <ComposedChart
-          width={800}
-          height={500}
+        <LineChart
           data={slicedData}
           margin={{
             top: 20,
@@ -45,25 +35,44 @@ const Charts = () => {
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis
-            dataKey="Any"
-            tickFormatter={(monthIndex) => monthNames[monthIndex - 1]}
+            dataKey={(item) => `${item.Mes}-${item.Any}`}
+            tickFormatter={(value) => {
+              const [month, year] = value.split('-');
+              return `${monthNames[Number(month) - 1]} ${year}`;
+            }}
           />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="Precipitacion" stroke="#8884d8" name="Precipitation" />
+          <Line type="monotone" dataKey="Temperatura" stroke="#82ca9d" name="Temperature" />
+          <Line type="monotone" dataKey="SPI" stroke="#ffc658" name="SPI" />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
 
-    <YAxis dataKey="SPI" domain={['dataMin', 100]} />
+const Charts = () => {
+  const [selectedYear, setSelectedYear] = useState(2022); // Set the initial selected year here
 
-    <Tooltip />
-    <Legend />
-    <Area type="monotone" dataKey="SPI" fill="#8884d8" stroke="#8884d8" />
-    <Bar dataKey="Precipitacion" barSize={20} fill="#413ea0" />
-    <Line type="monotone" dataKey="Temperatura" stroke="red"/>
+  const handleYearChange = (event) => {
+    const year = parseInt(event.target.value);
+    setSelectedYear(year);
+  };
 
-    {/* <ReferenceLine y={0} stroke="#000" /> */}
-  </ComposedChart>
-  </ResponsiveContainer>
-  </div>
-  )
-}
+  return (
+    <div>
+      <select onChange={handleYearChange}>
+        {Array.from({ length: 23 }, (_, index) => 2000 + index).map(year => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
+      <MyCharts selectedYear={selectedYear} />
+    </div>
+  );
+};
 
-export default Charts
-
-  
+export default Charts;
