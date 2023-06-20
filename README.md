@@ -77,10 +77,6 @@ This will install the necessary dependencies to run the program.
 
 <!-- CONTACT -->
 
-## Contact
-
-Vincenzo Cristiano - [LinkedIn](https://www.linkedin.com/in/vincenzo-cristiano/) - viu.cristiano@gmail.com
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
