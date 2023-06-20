@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div>HOME PAGE EQUIPO 15</div>;
+  return (
+    <div>
+      <h1 className='text-3xl font-bold underline bg-blue-600'>Hello world!</h1>
+    </div>
+  );
 }
