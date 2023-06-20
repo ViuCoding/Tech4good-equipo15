@@ -37,6 +37,7 @@ const IconsContainer = styled.div`
 const StyledLink = styled.a`
   color: #1c315e;
   font-weight: 600;
+  font-size: 0.9rem;
 `;
 
 export default function Footer() {
@@ -49,9 +50,9 @@ export default function Footer() {
 
         <IconsContainer>
           <StyledLink href='#'>Home</StyledLink>
-          <StyledLink href='#'>Graph1</StyledLink>
-          <StyledLink href='#'>Graph2</StyledLink>
-          <StyledLink href='#'>Solutions</StyledLink>
+          <StyledLink href='#'>Precipitaciones</StyledLink>
+          <StyledLink href='#'>Depositos de agua</StyledLink>
+          <StyledLink href='#'>Media de temperatura</StyledLink>
         </IconsContainer>
 
         <IconsContainer>
