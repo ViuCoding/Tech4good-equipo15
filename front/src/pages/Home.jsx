@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TextContent from "../components/TextContent";
 import Charts from "../components/charts";
+import SpiGrafico from "../components/SpiGrafico ";
 export const StyledContainer = styled.div`
   width: 80%;
   max-width: 1200px;
@@ -13,6 +14,7 @@ export default function Home() {
       <TextContent />
   
       <Charts />
+      <SpiGrafico />
     </StyledContainer>
   );
 }
