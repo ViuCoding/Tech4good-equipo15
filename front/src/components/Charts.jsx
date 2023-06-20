@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Rectangle,
 } from 'recharts';
 
 const monthNames = [
@@ -16,13 +17,17 @@ const monthNames = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
+
 const MyCharts = ({ selectedYear }) => {
   const { data } = useFetch('https://tech4good-backend-production.up.railway.app/api/data');
   const filteredData = data ? data.filter(item => item.Any === selectedYear) : [];
   const slicedData = filteredData.slice(0, 12);
 
   return (
-    <div style={{ height: '500px' }}>
+    <>
+    <h1 className='text-4xl text-[#1C315E] text-center font-semibold p-8'>Tendencia Anual de Precipitación, Temperatura y SPI</h1>
+        <p className='text-[#227C70]'>Este gráfico muestra la tendencia anual de la precipitación, temperatura y el Índice de Severidad de la Sequía (SPI) a lo largo de los años.</p>
+    <div style={{ height: '500px', position: 'relative' }}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={slicedData}
@@ -46,10 +51,12 @@ const MyCharts = ({ selectedYear }) => {
           <Legend />
           <Line type="monotone" dataKey="Precipitacion" stroke="#8884d8" name="Precipitation" />
           <Line type="monotone" dataKey="Temperatura" stroke="#82ca9d" name="Temperature" />
-          <Line type="monotone" dataKey="SPI" stroke="#ffc658" name="SPI" />
+          <Line type="monotone" dataKey="SPI" stroke="red" name="SPI" />
         </LineChart>
       </ResponsiveContainer>
+
     </div>
+    </>
   );
 };
 
@@ -77,6 +84,21 @@ const Charts = () => {
         ))}
       </select>
       <MyCharts selectedYear={selectedYear} />
+      <div className="mt-4 flex  align-items justify-center">
+        <h4 className='text-lg font-semibold mx-2'>Rangos de SPI:</h4>
+        <div className="mr-4 flex  items-center">
+          <div className="w-4 h-4 bg-red-500 mr-2"></div>
+          <div>-2 to -0.5: Sequera severa</div>
+        </div>
+        <div className="mr-4 flex  items-center">
+          <div className="w-4 h-4 bg-blue-500 mr-2"></div>
+          <div>-0.5 to 0.5: Tiempo normal</div>
+        </div>
+        <div className="mr-4 flex  items-center">
+          <div className="w-4 h-4 bg-green-500 mr-2"></div>
+          <div>0.5 to 2: Condiciones húmedas</div>
+        </div>
+    </div>
     </div>
   );
 };
