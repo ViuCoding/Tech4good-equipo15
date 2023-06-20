@@ -5,8 +5,10 @@ import Linkedin from "../assets/linkedin.png";
 import RSS from "../assets/rss.png";
 
 import styled from "styled-components";
+import { StyledContainer } from "../pages/Home";
+
 const StyledFooter = styled.footer`
-  padding: 2rem 4rem;
+  padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,24 +41,26 @@ const StyledLink = styled.a`
 
 export default function Footer() {
   return (
-    <StyledFooter>
-      <div>
-        <LogoStyled src={Logo} />
-      </div>
+    <StyledContainer>
+      <StyledFooter>
+        <div>
+          <LogoStyled src={Logo} />
+        </div>
 
-      <IconsContainer>
-        <StyledLink href='#'>Home</StyledLink>
-        <StyledLink href='#'>Graph1</StyledLink>
-        <StyledLink href='#'>Graph2</StyledLink>
-        <StyledLink href='#'>Solutions</StyledLink>
-      </IconsContainer>
+        <IconsContainer>
+          <StyledLink href='#'>Home</StyledLink>
+          <StyledLink href='#'>Graph1</StyledLink>
+          <StyledLink href='#'>Graph2</StyledLink>
+          <StyledLink href='#'>Solutions</StyledLink>
+        </IconsContainer>
 
-      <IconsContainer>
-        <IconStyled src={GitHub} />
-        <IconStyled src={Insta} />
-        <IconStyled src={Linkedin} />
-        <IconStyled src={RSS} />
-      </IconsContainer>
-    </StyledFooter>
+        <IconsContainer>
+          <IconStyled src={GitHub} />
+          <IconStyled src={Insta} />
+          <IconStyled src={Linkedin} />
+          <IconStyled src={RSS} />
+        </IconsContainer>
+      </StyledFooter>
+    </StyledContainer>
   );
 }
