@@ -25,28 +25,29 @@ const monthNames = [
     ];
 
 const Charts = () => {
-  
-  const {data} = useFetch('https://tech4good-backend-production.up.railway.app/api/data')
-  // const fetchData = async()
-  
-  return ( 
+  const { data } = useFetch('https://tech4good-backend-production.up.railway.app/api/data');
+  const slicedData = data.slice(0, 12);
+  console.log(data);
+
+  return (
     <div style={{ height: '500px' }}>
-      
-    <ResponsiveContainer width="100%" height="100%">
-    <ComposedChart
-    width={800}
-    height={500}
-    data={data}
-    margin={{
-      top: 20,
-      right: 20,
-      bottom: 20,
-      left: 20
-    }}
-  >
-    <CartesianGrid stroke="#f5f5f5" />
-    <XAxis dataKey="Any" tickFormatter={(monthIndex) => monthNames[monthIndex - 1]}/>
-    
+      <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart
+          width={800}
+          height={500}
+          data={slicedData}
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis
+            dataKey="Any"
+            tickFormatter={(monthIndex) => monthNames[monthIndex - 1]}
+          />
 
     <YAxis dataKey="SPI" domain={['dataMin', 100]} />
 
@@ -56,9 +57,7 @@ const Charts = () => {
     <Bar dataKey="Precipitacion" barSize={20} fill="#413ea0" />
     <Line type="monotone" dataKey="Temperatura" stroke="red"/>
 
-    {/* <Scatter dataKey="" fill="red" /> */}
-
-    <ReferenceLine y={0} stroke="#000" />
+    {/* <ReferenceLine y={0} stroke="#000" /> */}
   </ComposedChart>
   </ResponsiveContainer>
   </div>
