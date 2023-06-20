@@ -28,8 +28,7 @@ const Charts = () => {
   
   const {data} = useFetch('https://tech4good-backend-production.up.railway.app/api/data')
   // const fetchData = async()
-  const slicedData = data.slice(0, 13);
-  console.log(arr);
+  
   return ( 
     <div style={{ height: '500px' }}>
       
@@ -37,7 +36,7 @@ const Charts = () => {
     <ComposedChart
     width={800}
     height={500}
-    data={slicedData}
+    data={data}
     margin={{
       top: 20,
       right: 20,
@@ -46,7 +45,7 @@ const Charts = () => {
     }}
   >
     <CartesianGrid stroke="#f5f5f5" />
-    <XAxis dataKey={Any} tickFormatter={(monthIndex) => monthNames[monthIndex - 1]}/>
+    <XAxis dataKey="Any" tickFormatter={(monthIndex) => monthNames[monthIndex - 1]}/>
     
 
     <YAxis dataKey="SPI" domain={['dataMin', 100]} />
