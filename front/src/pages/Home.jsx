@@ -2,6 +2,7 @@ import styled from "styled-components";
 import TextContent from "../components/TextContent";
 import Charts from "../components/charts";
 import SpiGrafico from "../components/SpiGrafico ";
+import PrecipitacionesGrafico from "../components/PrecipitacionesGrafico";
 export const StyledContainer = styled.div`
   width: 80%;
   max-width: 1200px;
@@ -15,6 +16,7 @@ export default function Home() {
   
       <Charts />
       <SpiGrafico />
+      <PrecipitacionesGrafico />
     </StyledContainer>
   );
 }

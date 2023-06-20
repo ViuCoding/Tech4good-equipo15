@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
     {
@@ -109,40 +109,24 @@ const data = [
         "SPI": -0.3489795649,
         "SPI Historico": -0.3587265425
         }
-]
+];
 
-const SpiGrafico = () => {
-    return (
-        <>
-        <h1 className='text-4xl text-[#1C315E] text-center font-semibold p-8'>Indice Estandarizado de Precipitaciones SPI</h1>
-        <p className='text-[#227C70]'>Los valores negativos indican déficit y los positivos superávit.</p>
-        <div className='h-96 border-2 rounded-xl border-blue-500 p-8'>
+
+const PrecipitacionesGrafico = () => {
+  return (
+    <>
+    <h1 className='text-4xl text-[#1C315E] text-center font-semibold p-8'>PrecipitacionesGrafico</h1>
+    <div className='h-96 border-2 rounded-xl border-blue-500 p-8'>
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
-            width={500}
-            height={400}
-            data={data}
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="Mes" />
-            <YAxis />
-            <Tooltip />
-            <Area type="monotone" dataKey="SPI" stroke="#1C315E" fill="#227C70" />
-          </AreaChart>
-        </ResponsiveContainer>
-        </div>
-        </>
-      );
-      
+        <BarChart width={150} height={40} data={data}>
+          <Bar dataKey="Precipitacion" fill="#8884d8" />
+          <XAxis dataKey="Mes"/> 
+          <YAxis domain={["dataMin", "dataMax"]}/>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+    </>
+  )
 }
-export default SpiGrafico;
-// #1C315E primario
-//#227C70 secundario
-//#88A47C compl
-//#E6E2C3 compl2
+
+export default PrecipitacionesGrafico
