@@ -5,6 +5,7 @@ import Charts from "../components/charts";
 import SpiGrafico from "../components/SpiGrafico ";
 import Card from "../components/Card";
 import PrecipitacionesGrafico from "../components/PrecipitacionesGrafico";
+import SpiHistorico from "../components/SpiHistorico";
 
 import InfoIcon from "../assets/info.png";
 import Alert from "../assets/alert.png";
@@ -55,6 +56,7 @@ export default function Home() {
       <Charts />
       <SpiGrafico />
       <PrecipitacionesGrafico />
+      <SpiHistorico />
     </StyledContainer>
   );
 }
